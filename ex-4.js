@@ -374,4 +374,17 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+
+function contBillMembers(bills) {
+  const uniqueNames = bills
+    .filter((bills) => bills.member !== null)
+    .map((bills) => bills.member.name)
+    .reduce((acc, name) => {
+      if (!acc.includes(name)) {
+        acc.push(name); 
+      }
+      return acc;
+    }, []);
+  return uniqueNames.length;  
+}
+console.log(contBillMembers(bills));
